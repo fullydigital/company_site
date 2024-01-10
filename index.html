@@ -1,0 +1,786 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wesolve-IT</title>
+  <link href="/index.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet" />
+
+<script type="module">
+  import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm'
+
+  const keenSlider = new KeenSlider(
+    '#keen-slider',
+    {
+      loop: true,
+      slides: {
+        origin: 'center',
+        perView: 1.25,
+        spacing: 16,
+      },
+      breakpoints: {
+        '(min-width: 1024px)': {
+          slides: {
+            origin: 'auto',
+            perView: 1.5,
+            spacing: 32,
+          },
+        },
+      },
+    },
+    []
+  )
+
+  const keenSliderPrevious = document.getElementById('keen-slider-previous')
+  const keenSliderNext = document.getElementById('keen-slider-next')
+
+  const keenSliderPreviousDesktop = document.getElementById('keen-slider-previous-desktop')
+  const keenSliderNextDesktop = document.getElementById('keen-slider-next-desktop')
+
+  keenSliderPrevious.addEventListener('click', () => keenSlider.prev())
+  keenSliderNext.addEventListener('click', () => keenSlider.next())
+
+  keenSliderPreviousDesktop.addEventListener('click', () => keenSlider.prev())
+  keenSliderNextDesktop.addEventListener('click', () => keenSlider.next())
+</script>
+</head>
+
+<body>
+  <div x-data="{ isOpen: false }" class="flex justify-between p-4 bg-wesolveGreen md:px-32 lg:px-28 xl:px-48">
+    <div class="flex items-center">
+      <img class="w-72" src="./assets/logo.svg" alt="Logo">
+    </div>
+
+    <!-- left header section -->
+    <div class="flex items-center justify-between">
+      <button @click="isOpen = !isOpen" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <div class="hidden space-x-6 lg:inline-block">
+        <a href="#" class="text-base text-white ">Start</a>
+        <a href="#" class="text-base text-white ">Kunden</a>
+        <a href="#" class="text-base text-white ">Produkte</a>
+        <a href="#" class="text-base text-white ">Leistungen</a>
+        <a href="#" class="text-base text-white ">Kontakt</a>
+      </div>
+
+      <!-- mobile navbar -->
+      <div class="mobile-navbar">
+        <!-- navbar wrapper -->
+        <div class="fixed left-0 w-full p-5 bg-wesolveGray shadow-xl top-16" x-show="isOpen"
+          @click.away=" isOpen = false">
+          <div class="flex flex-col space-y-6">
+            <a href="#" class="text-sm text-black">Start</a>
+            <a href="#" class="text-sm text-black">Kunden</a>
+            <a href="#" class="text-sm text-black">Produkte</a>
+            <a href="#" class="text-sm text-black">Leistungen</a>
+            <a href="#" class="text-sm text-black">Kontakt</a>
+          </div>
+        </div>
+      </div>
+      <!-- end mobile navbar -->
+    </div>
+    <!-- right header section -->
+  </div>
+  </div>
+
+  <!-- Start hero -->
+  <div class="flex flex-col xl:flex-row w-screen from-wesolveGreen to-wesolveGray bg-gradient-to-b pb-20">
+    <div class="flex flex-col mt-12 mx-14 md:mx-28">
+      <h1 class="break-before-all text-3xl font-semibold text-white pb-4">Webseiten und Webapps maßgeschneidert auf Ihre Wünsche</h1>
+      <h2 class="text-lg text-wesolveGray pb-10 lg:pb-14">Wir erschaffen zusammen mit Ihnen Ihre digitale Erfahrung!</h2>
+      <div class="text-center">
+        <button class="bg-wesolveGray text-white mb-16 py-2 w-4/5 md:w-1/2">Mehr erfahren!</button>
+      </div>
+    </div>
+    <div class="align-middle justify-center flex px-0">
+      <img src="./assets/bannerImage.png" alt="Foto von mobilen Endgeräten" class=" mx-0">
+    </div>
+    <div class="flex flex-col mt-20 mx-14 md:mx-28">
+      <h1 class="text-white font-semibold text-3xl pb-4">Mobile Apps maßgeschneidert auf Ihre Wünsche</h1>
+      <h2 class="text-lg pb-10 lg:pb-14">Wir erfüllen Ihnen den Wunsch einer eigenen mobilen App nach Ihren Ansprüchen</h2>
+      <div class="text-center">
+        <button class="bg-wesolveGreen py-2 text-white w-4/5 md:w-1/2">Mehr erfahren!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Referenzen -->
+
+  <div class="bg-wesolveGray">
+    <h2 class="mx-14 lg:mx-28 text-3xl font-semibold mb-4">Wir sind zufrieden, wenn sie zufrieden sind!</h2>
+    <h3 class="mx-14 lg:mx-28 text-white pb-16">Wir können dir viel erzählen, doch überzeuge dich doch einfach selbst von uns.</h3>
+    <div class="flex flex-col lg:gap-14 lg:flex-row mx-14 lg:mx-28">
+      <div class="border-solid border rounded-lg border-wesolveGreen mb-10">
+        <div class="flex flex-row p-2 mt-2">
+          <img src="./assets/logos/FCN_Logo.png" alt="1.FC Nuernberg Logo" class="w-16 ml-3" />
+          <h2 class="text-2xl pl-5 mt-4 underline">1.FC Nürnberg</h2>
+        </div>
+        <img class="w-5/6 mx-auto my-6" src="./assets/examples/exampleImage.png" alt="Bild der App vom 1.FC Nürnberg" />
+        <p class="w-5/6 mx-auto mb-10">Die 1. FC Nürnberg-App weist Mitarbeitern die Sitzplätze der Kunden zu und optimiert Spieltagsabläufe. Ein unverzichtbares Tool für effizientes Management und eine reibungslose Erfahrung für Fans und Team</p>
+        <div class="text-center">
+          <button class="bg-wesolveGreen text-white py-2 px-6 text-center mb-8">Mehr erfahren!</button>
+        </div>
+      </div>
+
+      <div class="border-solid border rounded-lg border-wesolveGreen">
+        <div class="flex flex-row p-2 mt-2">
+          <img src="./assets/logos/Alfafood_Logo.png" alt="Alfafood Logo" class="w-16 ml-3" />
+          <h2 class="text-2xl pl-5 mt-6 underline">Alfafood</h2>
+        </div>
+        <img class="w-5/6 mx-auto my-6" src="./assets/examples/exampleImage.png" alt="Bild der App vom 1.FC Nürnberg" />
+        <p class="w-5/6 mx-auto mb-10">
+          Entdecken Sie unser Online-Portal für Restaurant-Großhandel. Wir liefern hochwertige Lebensmittel an Gastronomiebetriebe. Bestellen Sie bequem online und profitieren Sie von erstklassigen Produkten für kulinarische Exzellenz.</p>
+        <div class="text-center">
+          <button class="bg-wesolveGreen text-white py-2 px-6 text-center mb-8">Mehr erfahren!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Referenzen -->
+
+  <div class="h-24 bg-gradient-to-b from-wesolveGray to bg-wesolveGreen"></div>
+
+  <!-- Start Leistungen -->
+
+  <div class="bg-wesolveGreen pb-10">
+      <h1 class="mx-14 lg:mx-28 text-white text-3xl font-semibold mb-10">IT-Dienstleistungen auf deine Bedürfnisse angepasst</h1>
+
+  <div x-data="{ activeTab: 1 }">
+
+    <!-- Buttons -->
+    <div class="flex justify-center">
+        <div
+            role="tablist"
+            class="max-[480px]:max-w-[180px] inline-flex flex-wrap justify-center bg-wesolveGray rounded-[20px] p-1 mb-8 min-[480px]:mb-12"
+            @keydown.right.prevent.stop="$focus.wrap().next()"
+            @keydown.left.prevent.stop="$focus.wrap().prev()"
+            @keydown.home.prevent.stop="$focus.first()"
+            @keydown.end.prevent.stop="$focus.last()"
+        >
+            <!-- Button #1 -->
+            <button
+                id="tab-1"
+                class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+                :class="activeTab === 1 ? 'bg-white text-slate-900' : 'text-white hover:text-slate-900'"
+                :tabindex="activeTab === 1 ? 0 : -1"
+                :aria-selected="activeTab === 1"
+                aria-controls="tabpanel-1"
+                @click="activeTab = 1"
+                @focus="activeTab = 1"
+            >Webentwicklung</button>
+            <!-- Button #2 -->
+            <button
+                id="tab-2"
+                class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+                :class="activeTab === 2 ? 'bg-white text-slate-900' : 'text-white hover:text-slate-900'"
+                :tabindex="activeTab === 2 ? 0 : -1"
+                :aria-selected="activeTab === 2"
+                aria-controls="tabpanel-2"
+                @click="activeTab = 2"
+                @focus="activeTab = 2"
+            >App-Entwicklung</button>
+            <!-- Button #3 -->
+            <button
+                id="tab-3"
+                class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+                :class="activeTab === 3 ? 'bg-white text-slate-900' : 'text-white hover:text-slate-900'"
+                :tabindex="activeTab === 3 ? 0 : -1"
+                :aria-selected="activeTab === 3"
+                aria-controls="tabpanel-3"
+                @click="activeTab = 3"
+                @focus="activeTab = 3"
+            >SEO</button>
+            <!-- Button #4 -->
+            <button
+                id="tab-4"
+                class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+                :class="activeTab === 4 ? 'bg-white text-slate-900' : 'text-white hover:text-slate-900'"
+                :tabindex="activeTab === 4 ? 0 : -1"
+                :aria-selected="activeTab === 4"
+                aria-controls="tabpanel-4"
+                @click="activeTab = 4"
+                @focus="activeTab = 4"
+            >SMM</button>
+            <!-- Button #5 -->
+            <button
+                id="tab-5"
+                class="flex-1 text-sm font-medium h-8 px-4 rounded-2xl whitespace-nowrap focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out"
+                :class="activeTab === 5 ? 'bg-white text-slate-900' : 'text-white hover:text-slate-900'"
+                :tabindex="activeTab === 5 ? 0 : -1"
+                :aria-selected="activeTab === 5"
+                aria-controls="tabpanel-5"
+                @click="activeTab = 5"
+                @focus="activeTab = 5"
+            >Individualsoftware</button>
+        </div>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="max-w-[640px] mx-auto">
+        <div class="relative flex flex-col">
+
+            <!-- Panel #1 -->
+            <article
+                id="tabpanel-1"
+                class="w-5/6 mx-auto bg-white rounded-2xl shadow-xl min-[480px]:flex items-stretch focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+                role="tabpanel" 
+                tabindex="0"
+                aria-labelledby="tab-1"
+                x-show="activeTab === 1"
+                x-transition:enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 transform order-first"
+                x-transition:enter-start="opacity-0 -translate-y-8"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-300 transform absolute"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-12"                        
+            >
+                <figure class="min-[480px]:w-1/2 p-2">
+                    <img class="w-full h-[250px] min-[480px]:h-full object-cover rounded-lg" src="./assets/services/Portfolio-website.svg" alt="Tab 01" />
+                </figure>
+                <div class="min-[480px]:w-1/2 flex flex-col justify-center p-5 pl-3">
+                    <div class="flex justify-between mb-1">
+                        <header>
+                            <div class="font-caveat text-xl font-medium text-wesolveGreen">Webentwicklung</div>
+                            <h1 class="text-xl font-bold text-slate-900">Dein digitaler Auftritt</h1>
+                        </header>
+                        <!-- <button class="shrink-0 h-[30px] w-[30px] border border-slate-200 hover:border-slate-300 rounded-full shadow inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-in-out" aria-label="Like">
+                            <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="14" height="13">
+                                <path d="M6.985 1.635C5.361.132 2.797.162 1.21 1.7A3.948 3.948 0 0 0 0 4.541a3.948 3.948 0 0 0 1.218 2.836l5.156 4.88a.893.893 0 0 0 1.223 0l5.165-4.886a3.925 3.925 0 0 0 .061-5.663C11.231.126 8.62.094 6.985 1.635Zm4.548 4.53-4.548 4.303-4.54-4.294a2.267 2.267 0 0 1 0-3.275 2.44 2.44 0 0 1 3.376 0c.16.161.293.343.398.541a.915.915 0 0 0 .766.409c.311 0 .6-.154.767-.409.517-.93 1.62-1.401 2.677-1.142 1.057.259 1.797 1.181 1.796 2.238a2.253 2.253 0 0 1-.692 1.63Z" />
+                            </svg>
+                        </button> -->
+                    </div>
+                    <div class="text-slate-500 text-sm line-clamp-3 mb-2">Wir erarbeiten mit dir gemeinsam deinen optimalen Webauftritt für bestmögliche Sichtbarkeit und Warnehmung.</div>
+                    <div class="text-right">
+                        <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-out" href="#0">Mehr erfahren -&gt;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Panel #2 -->
+            <article
+                id="tabpanel-2"
+                class="w-5/6 mx-auto bg-white rounded-2xl shadow-xl min-[480px]:flex items-stretch focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+                role="tabpanel" 
+                tabindex="0"
+                aria-labelledby="tab-2"
+                x-show="activeTab === 2"
+                x-transition:enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 transform order-first"
+                x-transition:enter-start="opacity-0 -translate-y-8"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-300 transform absolute"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-12"                        
+            >
+                <figure class="min-[480px]:w-1/2 p-2">
+                    <img class="w-full h-[250px] min-[480px]:h-full object-cover rounded-lg" width="304" height="214" src="./assets/services/Application-development.svg" alt="Tab 02" />
+                </figure>
+                <div class="min-[480px]:w-1/2 flex flex-col justify-center p-5 pl-3">
+                    <div class="flex justify-between mb-1">
+                        <header>
+                            <div class="font-caveat text-xl font-medium text-wesolveGreen">App-Entwicklung</div>
+                            <h1 class="text-xl font-bold text-slate-900">Wir bringen dich auf die Mobilgeräte der Menschen!</h1>
+                        </header>
+                    </div>
+                    <div class="text-slate-500 text-sm line-clamp-3 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</div>
+                    <div class="text-right">
+                        <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-out" href="#0">Read more -&gt;</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Panel #3 -->
+            <article
+                id="tabpanel-3"
+                class="w-5/6 mx-auto bg-white rounded-2xl shadow-xl min-[480px]:flex items-stretch focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+                role="tabpanel" 
+                tabindex="0"
+                aria-labelledby="tab-3"
+                x-show="activeTab === 3"
+                x-transition:enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 transform order-first"
+                x-transition:enter-start="opacity-0 -translate-y-8"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-300 transform absolute"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-12"                        
+            >
+                <figure class="min-[480px]:w-1/2 p-2">
+                    <img class="w-full h-[250px] min-[480px]:h-full object-cover rounded-lg" width="304" height="214" src="./assets/services/Mobile-search.svg" alt="Tab 03" />
+                </figure>
+                <div class="min-[480px]:w-1/2 flex flex-col justify-center p-5 pl-3">
+                    <div class="flex justify-between mb-1">
+                        <header>
+                            <div class="font-caveat text-xl font-medium text-wesolveGreen">Suchmaschinenoptimierung</div>
+                            <h1 class="text-xl font-bold text-slate-900">Eureka Peak</h1>
+                        </header>
+                    </div>
+                    <div class="text-slate-500 text-sm line-clamp-3 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</div>
+                    <div class="text-right">
+                        <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-out" href="#0">Read more -&gt;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Panel #4 -->
+            <article
+                id="tabpanel-4"
+                class="w-5/6 mx-auto bg-white rounded-2xl shadow-xl min-[480px]:flex items-stretch focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+                role="tabpanel" 
+                tabindex="0"
+                aria-labelledby="tab-4"
+                x-show="activeTab === 4"
+                x-transition:enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 transform order-first"
+                x-transition:enter-start="opacity-0 -translate-y-8"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-300 transform absolute"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-12"                        
+            >
+                <figure class="min-[480px]:w-1/2 p-2">
+                    <img class="w-full h-[250px] min-[480px]:h-full object-cover rounded-lg" width="304" height="214" src="./assets/services/Software-Developer.svg" alt="Tab 04" />
+                </figure>
+                <div class="min-[480px]:w-1/2 flex flex-col justify-center p-5 pl-3">
+                    <div class="flex justify-between mb-1">
+                        <header>
+                            <div class="font-caveat text-xl font-medium text-wesolveGreen">Social Media Marketing</div>
+                            <h1 class="text-xl font-bold text-slate-900">Eureka Peak</h1>
+                        </header>
+                    </div>
+                    <div class="text-slate-500 text-sm line-clamp-3 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</div>
+                    <div class="text-right">
+                        <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-out" href="#0">Read more -&gt;</a>
+                    </div>
+                </div>
+            </article>
+
+             <!-- Panel #5 -->
+             <article
+             id="tabpanel-5"
+             class="w-5/6 mx-auto bg-white rounded-2xl shadow-xl min-[480px]:flex items-stretch focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+             role="tabpanel" 
+             tabindex="0"
+             aria-labelledby="tab-5"
+             x-show="activeTab === 5"
+             x-transition:enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 transform order-first"
+             x-transition:enter-start="opacity-0 -translate-y-8"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-300 transform absolute"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 translate-y-12"                        
+         >
+             <figure class="min-[480px]:w-1/2 p-2">
+                 <img class="w-full h-[250px] min-[480px]:h-full object-cover rounded-lg" width="304" height="214" src="./assets/services/Software-Developer.svg" alt="Tab 04" />
+             </figure>
+             <div class="min-[480px]:w-1/2 flex flex-col justify-center p-5 pl-3">
+                 <div class="flex justify-between mb-1">
+                     <header>
+                         <div class="font-caveat text-xl font-medium text-wesolveGreen">Individualsoftware</div>
+                         <h1 class="text-xl font-bold text-slate-900">Eureka Peak</h1>
+                     </header>
+                 </div>
+                 <div class="text-slate-500 text-sm line-clamp-3 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</div>
+                 <div class="text-right">
+                     <a class="text-sm font-medium text-indigo-500 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150 ease-out" href="#0">Read more -&gt;</a>
+                 </div>
+             </div>
+         </article>
+
+        </div>
+    </div>
+
+</div>
+  </div>
+</div>
+
+  <!-- End Leistungen -->
+
+  <!-- Start Rezensionen -->
+
+  <div class="bg-gradient-to-b from-wesolveGreen to-wesolveGray h-20"></div>
+
+  <section class="bg-wesolveGray pb-10">
+    <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
+        <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right mx-auto">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Wir schätzen die Zusammenarbeit mit Ihnen sehr...
+          </h2>
+  
+          <p class="mt-4 text-gray-700">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas veritatis illo placeat
+            harum porro optio fugit a culpa sunt id!
+          </p>
+  
+          <div class="hidden lg:mt-8 lg:flex lg:gap-4">
+            <button
+              aria-label="Previous slide"
+              id="keen-slider-previous-desktop"
+              class="rounded-full border border-wesolveGreen p-3 text-wesolveGreen transition hover:bg-wesolveGreen hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-5 w-5 rtl:rotate-180"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+  
+            <button
+              aria-label="Next slide"
+              id="keen-slider-next-desktop"
+              class="rounded-full border border-wesolveGreen p-3 text-wesolveGreen transition hover:bg-wesolveGreen hover:text-white"
+            >
+              <svg
+                class="h-5 w-5 rtl:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+  
+        <div class="-mx-6 lg:col-span-2 lg:mx-0">
+          <div id="keen-slider" class="keen-slider">
+            <div class="keen-slider__slide rounded-xl">
+              <blockquote
+                class="flex h-full flex-col justify-between bg-gray-100 p-6 shadow-sm sm:p-8 lg:p-12"
+              >
+                <div>
+                  <div class="flex gap-0.5 text-yellow-600">
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+  
+                  <div class="mt-4">
+                    <p class="text-2xl font-bold text-wesolveGreen sm:text-3xl">Alfafood</p>
+  
+                    <p class="mt-4 leading-relaxed text-gray-700">
+                      Die Erstellung meiner Webseite war ein absoluter Erfolg! Das Team lieferte nicht nur ein ansprechendes Design, sondern ermöglichte mir auch mühelose Selbstpflege. Perfekte Lösung für mein Business!
+                    </p>
+                  </div>
+                </div>
+  
+                <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  &mdash; Roni Burcak, Geschäftsführer Alfafood GmbH
+                </footer>
+              </blockquote>
+            </div>
+  
+            <div class="keen-slider__slide rounded-xl">
+              <blockquote
+                class="flex h-full flex-col justify-between bg-gray-100 p-6 shadow-sm sm:p-8 lg:p-12"
+              >
+                <div>
+                  <div class="flex gap-0.5 text-yellow-600">
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+  
+                  <div class="mt-4">
+                    <p class="text-2xl font-bold text-wesolveGreen sm:text-3xl">1.FC Nürnberg</p>
+  
+                    <p class="mt-4 leading-relaxed text-gray-700">
+                      No, Rose, they are not breathing. And they have no arms or legs … Where are
+                      they? You know what? If we come across somebody with no arms or legs, do we
+                      bother resuscitating them? I mean, what quality of life do we have there?
+                    </p>
+                  </div>
+                </div>
+  
+                <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  &mdash; Henrik Brüggen, Hospitality
+                </footer>
+              </blockquote>
+            </div>
+  
+            <div class="keen-slider__slide rounded-xl">
+              <blockquote
+                class="flex h-full flex-col justify-between bg-gray-100 p-6 shadow-sm sm:p-8 lg:p-12"
+              >
+                <div>
+                  <div class="flex gap-0.5 text-yellow-600">
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+  
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+  
+                  <div class="mt-4">
+                    <p class="text-2xl font-bold text-wesolveGreen sm:text-3xl">Sport-Weber Schnaittach</p>
+  
+                    <p class="mt-4 leading-relaxed text-gray-700">
+                      No, Rose, they are not breathing. And they have no arms or legs … Where are
+                      they? You know what? If we come across somebody with no arms or legs, do we
+                      bother resuscitating them? I mean, what quality of life do we have there?
+                    </p>
+                  </div>
+                </div>
+  
+                <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  &mdash; Max Schorn, Geschäftsführer
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mt-8 flex justify-center gap-4 lg:hidden">
+        <button
+          aria-label="Previous slide"
+          id="keen-slider-previous"
+          class="rounded-full border border-wesolveGreen p-4 text-wesolveGreen transition hover:bg-wesolveGreen hover:text-white"
+        >
+          <svg
+            class="h-5 w-5 -rotate-180 transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+          </svg>
+        </button>
+  
+        <button
+          aria-label="Next slide"
+          id="keen-slider-next"
+          class="rounded-full border border-wesolveGreen p-4 text-wesolveGreen transition hover:bg-wesolveGreen hover:text-white"
+        >
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Ende Rezensionen -->
+
+
+  <!-- Start Kontakt -->
+
+  <div class="to-black from-wesolveGray bg-gradient-to-b px-14 pb-20">
+    <p class="text-white text-3xl text-center mb-6">Du willst dein Projekt gemeinsam mit uns umsetzen?</p>
+    <div class="text-center">
+      <button class="bg-wesolveGray py-2 px-6">Kontaktiere uns!</button>
+    </div>
+  </div>
+
+  <!-- End Kontakt -->
+
+  <!-- Start Footer -->
+
+  <div class="bg-black w-screen h-20 text-white px-6 text-sm pt-7">
+    <div class="flex flex-row justify-center">
+      <p class="pr-2">Copyrights &copy; 2024</p>
+      <p class="pr-2">|</p>
+      <p class="pr-2">Impressum</p>
+      <p class="pr-2">|</p>
+      <p>Datenschutz</p>
+    </div>
+  </div>
+
+  <!-- End Footer -->
+
+</body>
+
+</html>
