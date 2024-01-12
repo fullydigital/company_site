@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="/index.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+  <div x-data="{ isOpen: false }" class="flex justify-between p-4 bg-wesolveGreen md:px-32 lg:px-28 xl:px-48">
+    <div class="flex items-center">
+      <img class="w-72" src="../assets/logo.svg" alt="Logo">
+    </div>
+
+    <!-- left header section -->
+    <div class="flex items-center justify-between">
+      <button @click="isOpen = !isOpen" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <div class="hidden space-x-6 lg:inline-block">
+        <a href="/" class="text-base text-white ">Start</a>
+        <a href="#" class="text-base text-white ">Kunden</a>
+        <a href="#" class="text-base text-white ">Produkte</a>
+        <a href="#" class="text-base text-white ">Leistungen</a>
+        <a href="#" class="text-base text-white ">Kontakt</a>
+      </div>
+
+      <!-- mobile navbar -->
+      <div class="mobile-navbar">
+        <!-- navbar wrapper -->
+        <div class="fixed left-0 w-full p-5 bg-wesolveGray shadow-xl top-16" x-show="isOpen"
+          @click.away=" isOpen = false">
+          <div class="flex flex-col space-y-6">
+            <a href="/" class="text-sm text-black">Start</a>
+            <a href="#" class="text-sm text-black">Kunden</a>
+            <a href="#" class="text-sm text-black">Produkte</a>
+            <a href="#" class="text-sm text-black">Leistungen</a>
+            <a href="#" class="text-sm text-black">Kontakt</a>
+          </div>
+        </div>
+      </div>
+      <!-- end mobile navbar -->
+    </div>
+    <!-- right header section -->
+  </div>
+  </div>
+  <div>
+    <h1 class="text-3xl md:text-4xl px-8 text-center mt-14 font-semibold">Trete gerne in Kontakt mit uns!</h1>
+    <p class="px-8 mt-8 md:mx-14 lg:mx-20 xl:mx-36">Guten Tag! Wir sind Ihr Partner für innovative Softwarelösungen. Teilen Sie uns Ihre Anforderungen mit, und wir setzen uns umgehend mit Ihnen in Verbindung, um maßgeschneiderte Lösungen zu besprechen.</p>
+    <div class="flex flex-col lg:flex-row lg:gap-10 lg:flex-wrap mx-8 mt-16 md:mx-14 lg:mx-24 xl:mx-52">
+      <section class="flex flex-col lg:w-[48.6%]">
+      <label for="name" class="mb-2 font-semibold">Name*</label>
+      <input type="text" class="bg-gray-200 mb-8 py-3 px-4 focus:border-wesolveGreen focus:border" />
+    </section>
+    <section class="flex flex-col lg:w-[48.6%]">
+      <label for="name" class="mb-2 font-semibold">Email*</label>
+      <input type="text" class="bg-gray-200 mb-8 py-3 px-4" />
+    </section>
+    <section class="flex flex-col lg:w-[48.6%]">
+      <label for="name" class="mb-2 font-semibold">Betreff*</label>
+      <input type="text" class="bg-gray-200 mb-8 py-3 px-4" />
+    </section>
+    <section class="flex flex-col lg:w-[48.6%]">
+      <label for="name" class="mb-2 font-semibold">Telefonnummer*</label>
+      <input type="text" class="bg-gray-200 mb-8 py-3 px-4" />
+    </section>
+    <section class="flex flex-col lg:w-full">
+      <label for="name" class="mb-2 font-semibold">Nachricht*</label>
+      <textarea class="bg-gray-200 py-3 px-4" rows="6" cols="50" placeholder="Erzähle uns über deine Idee, dein Projekt, dein Unternehmen... Wir antworten in der Regel innerhalb der nächsten 24 Stunden."></textarea>
+    </section>
+    </div>
+    <div class="text-center mt-14 mb-20">
+      <button class="py-3 bg-wesolveGreen text-white w-7/12 xl:w-3/12">Nachricht senden!</button>
+    </div>
+  </div>
+
+  <!-- Start Footer -->
+
+  <div class="bg-black w-screen h-20 text-white px-6 text-sm pt-7">
+    <div class="flex flex-row justify-center">
+      <p class="pr-2">Copyrights &copy; 2024</p>
+      <p class="pr-2">|</p>
+      <p class="pr-2">Impressum</p>
+      <p class="pr-2">|</p>
+      <p>Datenschutz</p>
+    </div>
+  </div>
+  
+  <!-- End Footer -->
+
+</body>
+</html>
